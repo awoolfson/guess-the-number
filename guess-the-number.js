@@ -63,31 +63,41 @@ function correctGuessSequence() {
     = "Correct! You got it in " + String(totalGuesses) 
     + " " + guessGrammar + ", press \"generate a new number\" to go again!";
 
-    enterBetweenRounds();
+    //endRound();
 }
 
 function giveUp() {
     //replace question mark with real currentNumber
     let numberRevealElement = String(document.getElementById("numberReveal").innerHTML);
     let numRevealArray = numberRevealElement.split(" ");
-    numRevealArray[3] = currentNumber;
+    console.log(numRevealArray);
+    numRevealArray[2] = currentNumber;
+    console.log(numRevealArray[2]);
 
     numberRevealElement = "";
     for (let i = 0; i < numRevealArray.length; i++) {
         //rebuild element with real currentNumber value instead of question mark
-        numRevealArray += numRevealArray[i];
+        numberRevealElement += String(numRevealArray[i]);
     }
 
     document.getElementById("numberReveal").innerHTML = numberRevealElement;
 
+    let timesGrammar;
+
+    if (guessCount == 1) {
+        timesGrammar = "time";
+    } else {
+        timesGrammar = "times";
+    }
+
     document.getElementById("messages").innerHTML
     = "Shame on you. Looks like mama raised a quitter. And you only guessed "
-    + `${guessCount}`
-    + " times! Press \"generate a new number\" to try again."
+    + `${guessCount}` + " "
+    + timesGrammar + ". Press \"generate a new number\" to try again."
 
-    enterBetweenRounds();
+    //endRound();
 }
 
-function enterBetweenRounds() {
+function endRound() {
 
 }
