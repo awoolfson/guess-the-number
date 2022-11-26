@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <script src="guess-the-number.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>
+        Guess the number!
+    </h1>
+    <div id="getRangeInputs">
+        This game will generate a number between...
+        <input type="number" placeholder="lower bound" name="lower bound" id="lower-bound-input">
+        and
+        <input type="number" placeholder="upper bound" name="upper bound" id="upper-bound-input">
+    </div>
+    <div id="generateNumber">
+        <button id="generate-button" onclick="generateNumber()">generate a new number</button>
+    <div id="guessCounter">
+        guess counter:
+        <p id="counter">0</p>
+    </div>
+    </div>
+    <div id="revealNumber">
+        <button id="generate-button" onclick="giveUp()">I give up!</button>
+    </div>
+    <div id="guessNumber">
+        <input type="number" placeholder="guess" name="guess number" id="guess-number-input">
+        <button id="guess-number-button" onclick="guess()">submit guess</button>
+    </div>
+    <div id="messages">
+    </div>
+    <div id="numberReveal">
+        
+    </div>
+    <div id="currentNumber">
+        
+    </div>
+</body>
+</html>
