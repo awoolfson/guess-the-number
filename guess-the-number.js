@@ -1,7 +1,19 @@
+/*
+Guess the number game, Auden Woolfson
+
+TODO:
+    - add functions for ending and starting rounds for a sort of states paridigm
+    - build a section for best rounds based on a users rounds with
+    the lowest ratio of guesses to range
+    -handle different users
+*/
+
+
 let guessCount=0;
 let currentNumber;
 
 function generateNumber() {
+    //starts a round
     let lowerBound = parseInt(document.getElementById("lower-bound-input").value);
     let upperBound = parseInt(document.getElementById("upper-bound-input").value);
     currentNumber = randInt(lowerBound, upperBound);
@@ -10,13 +22,15 @@ function generateNumber() {
     document.getElementById("numberReveal").innerHTML 
     = `${lowerBound}` + " " + signs[0] +  " ? " + signs[1] + " " + `${upperBound}`;
 
-    document.getElementById("currentNumber").innerHTML = `${currentNumber}`;
+    //document.getElementById("currentNumber").innerHTML = `${currentNumber}`;
+    //above line used for testing
     guessCount = 0;
     updateGuessCounter();
     document.getElementById("messages").innerHTML = "";
 }
 
 function decideSign(lower, upper) {
+    //logic for signs used in numberReveal element
     let signs = ["", ""];
     if (lower > upper) {
         signs[1] = ">";
@@ -32,11 +46,13 @@ function decideSign(lower, upper) {
 }
 
 function randInt(lowerBound, upperBound) {
+    //quick way to get a random integer
     let randomNumber = parseInt(Math.floor(Math.random() * (upperBound+1-lowerBound)) + lowerBound);
     return randomNumber;
 }
 
 function guess() {
+    //activates upon the user pressing the guess button
     guessCount += 1;
     updateGuessCounter();
     let currentGuess = parseInt(document.getElementById("guess-number-input").value);
@@ -67,7 +83,7 @@ function correctGuessSequence() {
 }
 
 function giveUp() {
-    //replace question mark with real currentNumber
+    //activates upon the user pressing the give up button
     let numberRevealElement = String(document.getElementById("numberReveal").innerHTML);
     let numRevealArray = numberRevealElement.split(" ");
     console.log(numRevealArray);
@@ -99,5 +115,6 @@ function giveUp() {
 }
 
 function endRound() {
+    //change to the in between rounds state
 
 }
