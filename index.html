@@ -23,29 +23,39 @@
 
         <div id="getNameInput">
             Enter your name to save your highlights:
-            <input type="text" placeholder="name" name="name input" id="name-input">
+            <div class="name-inputs">
+                <input type="text" placeholder="name" name="name input" id="name-input">
+                <button id="name-button">enter name</button>
+            </div>
         </div>
     </div>
 
     <div class="game-box">
-        <div id="generateNumber">
-            <button id="generate-button" onclick="generateNumber()">generate a new number</button>
+
+        <div class="number-box">
+            <div id="generateNumber">
+                <button id="generate-button" onclick="generateNumber()">generate a new number</button>
+            </div>
+            <div id="numberReveal">
+            </div>
         </div>
+
         <div id="guessCounter">
             <div>guess counter:</div>
             <div id="counter"> 0</div>
         </div>
-        <div id="revealNumber">
-            <button id="generate-button" onclick="giveUp()">I give up!</button>
-        </div>
+        
         <div id="guessNumber">
             <input type="number" placeholder="guess" name="guess number" id="guess-number-input">
             <button id="guess-number-button" onclick="guess()">submit guess</button>
         </div>
+
+        <div id="revealNumber">
+            <button id="generate-button" onclick="giveUp()">I give up!</button>
+        </div>
         <div id="messages">
         </div>
-        <div id="numberReveal">
-        </div>
+
         <div id="currentNumber">
         </div>
     </div>
