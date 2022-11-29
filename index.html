@@ -6,39 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Number Guessing Game</title>
     <script src="guess-the-number.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>
-        Guess the number!
+        guess the number
     </h1>
-    <div id="getRangeInputs">
-        This game will generate a number between...
-        <input type="number" placeholder="lower bound" name="lower bound" id="lower-bound-input">
-        and
-        <input type="number" placeholder="upper bound" name="upper bound" id="upper-bound-input">
+
+    <div class="settings-box">
+        <div id="getRangeInputs">
+            This game will generate a number between...
+            <input type="number" placeholder="lower bound" name="lower bound" id="lower-bound-input">
+            and
+            <input type="number" placeholder="upper bound" name="upper bound" id="upper-bound-input">
+        </div>
+
+        <div id="getNameInput">
+            Enter your name to save your highlights:
+            <input type="text" placeholder="name" name="name input" id="name-input">
+        </div>
     </div>
-    <div id="generateNumber">
-        <button id="generate-button" onclick="generateNumber()">generate a new number</button>
-    <div id="guessCounter">
-        guess counter:
-        <p id="counter">0</p>
+
+    <div class="game-box">
+        <div id="generateNumber">
+            <button id="generate-button" onclick="generateNumber()">generate a new number</button>
+        </div>
+        <div id="guessCounter">
+            <div>guess counter:</div>
+            <div id="counter"> 0</div>
+        </div>
+        <div id="revealNumber">
+            <button id="generate-button" onclick="giveUp()">I give up!</button>
+        </div>
+        <div id="guessNumber">
+            <input type="number" placeholder="guess" name="guess number" id="guess-number-input">
+            <button id="guess-number-button" onclick="guess()">submit guess</button>
+        </div>
+        <div id="messages">
+        </div>
+        <div id="numberReveal">
+        </div>
+        <div id="currentNumber">
+        </div>
     </div>
-    </div>
-    <div id="revealNumber">
-        <button id="generate-button" onclick="giveUp()">I give up!</button>
-    </div>
-    <div id="guessNumber">
-        <input type="number" placeholder="guess" name="guess number" id="guess-number-input">
-        <button id="guess-number-button" onclick="guess()">submit guess</button>
-    </div>
-    <div id="messages">
-    </div>
-    <div id="numberReveal">
-        
-    </div>
-    <div id="currentNumber">
-        
-    </div>
+
 </body>
 </html>

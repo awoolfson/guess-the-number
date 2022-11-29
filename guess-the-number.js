@@ -8,9 +8,21 @@ TODO:
     -handle different users
 */
 
-
-let guessCount=0;
+let highlights = [];
+let guessCount = 0;
 let currentNumber;
+
+function startRound() {
+    generateNumber()
+}
+
+function endRound(round) {
+    if (round.guessedRight) {
+        
+    } else {
+        
+    }
+}
 
 function generateNumber() {
     //starts a round
@@ -18,7 +30,7 @@ function generateNumber() {
     let upperBound = parseInt(document.getElementById("upper-bound-input").value);
     currentNumber = randInt(lowerBound, upperBound);
 
-    let signs = decideSign(lowerBound, upperBound);
+    let signs = decideSigns(lowerBound, upperBound);
     document.getElementById("numberReveal").innerHTML 
     = `${lowerBound}` + " " + signs[0] +  " ? " + signs[1] + " " + `${upperBound}`;
 
@@ -29,7 +41,7 @@ function generateNumber() {
     document.getElementById("messages").innerHTML = "";
 }
 
-function decideSign(lower, upper) {
+function decideSigns(lower, upper) {
     //logic for signs used in numberReveal element
     let signs = ["", ""];
     if (lower > upper) {
@@ -70,16 +82,19 @@ function updateGuessCounter() {
 function correctGuessSequence() {
     let totalGuesses = guessCount;
     let guessGrammar = "";
-    if (totalGuesses==1) {
-        guessGrammar="guess";
+    if (totalGuesses == 1) {
+        guessGrammar = "guess";
     } else {
-        guessGrammar="guesses";
+        guessGrammar = "guesses";
     }
     document.getElementById("messages").innerHTML 
     = "Correct! You got it in " + String(totalGuesses) 
     + " " + guessGrammar + ", press \"generate a new number\" to go again!";
 
-    //endRound();
+    endRound({
+        guessedRight: true,
+        totalGuesses: totalGuesses,
+    });
 }
 
 function giveUp() {
@@ -111,10 +126,8 @@ function giveUp() {
     + `${guessCount}` + " "
     + timesGrammar + ". Press \"generate a new number\" to try again."
 
-    //endRound();
-}
-
-function endRound() {
-    //change to the in between rounds state
-
+    endRound({
+        guessedRight: false,
+        totalGuesses: guessCount
+    });
 }

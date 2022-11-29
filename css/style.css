@@ -1,0 +1,43 @@
+h1 {
+    font-size: 100px;
+    font-variant: small-caps;
+    
+    margin: auto;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    
+    width: 100%;
+    text-align: center;
+    
+    background-color: rgb(223, 226, 125);
+    
+}
+
+#getRangeInputs {
+    color: black;
+}
+
+#guessCounter {
+    display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#counter {
+    margin-left: 2px;
+}
+
+.settings-box {
+    margin-bottom: 2em;
+    display: flex;
+}
+
+.game-box {
+    display: flex;
+}
+
+#getNameInput {
+    margin-left: 1em;
+}
+
